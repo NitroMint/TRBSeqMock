@@ -1,0 +1,1 @@
+python3 TRBSeqMock.py -n 10000 -o test/ -t IGH
