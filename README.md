@@ -148,15 +148,17 @@ regions are left unmutated.
 
 ### Three-component mutation rate
 
-For each nucleotide position $i$ in the IGHV region:
+For each nucleotide position *i* in the IGHV region:
 
-$$P_{\text{mut}}(i) = \text{base\_rate} \times f_{\text{hotspot}}(i) \times f_{\text{CDR}}(i)$$
+<p align="center">
+<b>P<sub>mut</sub>(i) = base_rate × f<sub>hotspot</sub>(i) × f<sub>CDR</sub>(i)</b>
+</p>
 
 | Factor | Symbol | Description | Default Value | Reference |
 |--------|--------|-------------|---------------|-----------|
-| Global SHM rate | $\mu$ | Per-base mutation probability | 0.05 (5%) | Zheng et al., 2005; Kleinstein et al., 2003 |
-| Hotspot multiplier | $f_{\text{hotspot}}$ | $\times 4.0$ if position is in WRC/GYW motif; else background rate (0.002) | 4.0 | Rogozin & Diaz, 2004 |
-| CDR bias | $f_{\text{CDR}}$ | $\times 1.5$ if position is in CDR1 or CDR2 (IMGT) | 1.5 | Sheng et al., 2017 |
+| Global SHM rate | *μ* | Per-base mutation probability | 0.05 (5%) | Zheng et al., 2005; Kleinstein et al., 2003 |
+| Hotspot multiplier | *f<sub>hotspot</sub>* | ×4.0 if position is in WRC/GYW motif; else background rate (0.002) | 4.0 | Rogozin & Diaz, 2004 |
+| CDR bias | *f<sub>CDR</sub>* | ×1.5 if position is in CDR1 or CDR2 (IMGT) | 1.5 | Sheng et al., 2017 |
 
 ### Hotspot motifs
 
@@ -174,11 +176,11 @@ The model scans germline IGHV sequences for four classes of AID-targeting motifs
 When a mutation event occurs, the replacement base is selected with
 transition/transversion weights reflecting AID biochemistry:
 
-| From | →A | →C | →G | →T | Dominant pathway |
+| From | To A | To C | To G | To T | Dominant pathway |
 |------|------|------|------|------|------------------|
-| A | — | 0.30 | 0.35 | 0.35 | A→G transition |
-| C | 0.15 | — | 0.10 | **0.75** | C→T (AID deamination) |
-| G | **0.55** | 0.20 | — | 0.25 | G→A (complementary C→T) |
+| A | — | 0.30 | 0.35 | 0.35 | A to G (transition) |
+| C | 0.15 | — | 0.10 | **0.75** | C to T (AID deamination) |
+| G | **0.55** | 0.20 | — | 0.25 | G to A (complementary C to T) |
 | T | 0.30 | 0.35 | 0.35 | — | balanced |
 
 *Reference*: Di Noia & Neuberger, 2007; Sheng et al., 2017.
