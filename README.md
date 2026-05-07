@@ -87,50 +87,50 @@ TRBSeqMock/
 
 ```
  ┌──────────────┐
-1│  Select V/D/J │  Random draw from gene pool (uniform probability)
- │  genes        │
+1│ Select V/D/J │  Random draw from gene pool (uniform probability)
+ │ genes        │
  └──────┬───────┘
         ▼
  ┌──────────────┐
-2│  V 3' deletion│  Random draw from deletion length distribution (V3)
+2│ V 3' deletion│  Random draw from deletion length distribution (V3)
  │              │  → truncate V gene 3' end
  └──────┬───────┘
         ▼
  ┌──────────────┐
-3│  D 5' deletion│  Random draw → truncate D gene 5' end
+3│ D 5' deletion│  Random draw → truncate D gene 5' end
  │              │  → produces intermediate d_gene_mid
  └──────┬───────┘
         ▼
  ┌──────────────┐
-4│  D 3' deletion│  Random draw → truncate D gene 3' end from d_gene_mid
+4│ D 3' deletion│  Random draw → truncate D gene 3' end from d_gene_mid
  │              │  → produces final d_gene
  └──────┬───────┘
         ▼
  ┌──────────────┐
-5│  J 5' deletion│  Random draw → truncate J gene 5' end
+5│ J 5' deletion│  Random draw → truncate J gene 5' end
  └──────┬───────┘
         ▼
  ┌──────────────┐
-6│  VD insertion │  Random draw from insertion length distribution (DJ)
+6│ VD insertion │  Random draw from insertion length distribution (DJ)
  │              │  → generates random nucleotide sequence (A/C/G/T)
  └──────┬───────┘
         ▼
  ┌──────────────┐
-7│  DJ insertion │  Same process → generates DJ junction insert
+7│ DJ insertion │  Same process → generates DJ junction insert
  └──────┬───────┘
         ▼
  ┌──────────────┐
-8│   Assemble    │  V_processed + VD_insert + D_processed + DJ_insert + J_processed
+8│   Assemble   │  V_processed + VD_insert + D_processed + DJ_insert + J_processed
  └──────┬───────┘
         ▼
  ┌──────────────┐
-9│  Sequencing   │  Per-base substitution error (p=0.001 default)
- │  error        │  Numba JIT acceleration (graceful fallback if unavailable)
+9│  Sequencing  │  Per-base substitution error (p=0.001 default)
+ │  error       │  Numba JIT acceleration (graceful fallback if unavailable)
  └──────┬───────┘
         ▼
  ┌──────────────┐
-10│  SHM (IGH    │  ★ Position-specific probability model applied to IGHV
- │   only)       │  region only (FR1-CDR1-FR2-CDR2-FR3, IMGT 1–104)
+10│  SHM (IGH   │  ★ Position-specific probability model applied to IGHV
+ │   only)      │  region only (FR1-CDR1-FR2-CDR2-FR3, IMGT 1–104)
  └──────────────┘
 ```
 
